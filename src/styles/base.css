@@ -1,0 +1,22 @@
+@layer base {
+  /* 1rem = 10px, so sizes read straight off the design: text-[1.5rem] is 15px. */
+  :root {
+    font-size: 62.5%;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-size: 1.5rem;
+    color: var(--body);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    border-color: var(--line);
+  }
+}

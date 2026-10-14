@@ -1,0 +1,10 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json, tsconfig.json, tsconfig.tsbuildinfo, next.config.*, next-env.d.ts, globals.d.ts, eslint.config.*, postcss.config.*, components.json",
+    "README.md": "CLAUDE.md, COPYRIGHT.md, WORK_LOG*.md",
+    "Dockerfile": ".dockerignore, docker-compose*.yml",
+    ".gitignore": ".env, .env-*, .env.*"
+  }
+}

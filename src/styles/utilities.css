@@ -1,0 +1,42 @@
+/* Card shell. Radius and edge come from the tokens, so never pair it with rounded-* or border-*. */
+@utility surface {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+}
+
+@utility surface-interactive {
+  cursor: pointer;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--line-hover);
+  }
+}
+
+/* Anything floating over the map or the page. Sets no background or radius — pair it with both. */
+@utility floating {
+  border: 1px solid var(--line);
+  box-shadow: var(--float-shadow);
+}
+
+/* Section and hero-card eyebrow. Carries its own colour, so never pair it with text-*. */
+@utility label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--meta);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
+
+/* Page background for the text pages (sobre, café). */
+@utility bg-diagonal {
+  background-color: var(--background);
+  background-image: repeating-linear-gradient(45deg, var(--stripe) 0, var(--stripe) 0.2rem, transparent 0.2rem, transparent 1.4rem);
+}

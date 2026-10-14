@@ -1,0 +1,37 @@
+@custom-variant dark (&:is(.dark *));
+
+/* Tailwind's own palette is switched off: the only colours that exist are the roles below,
+   plus white and black for overlays on photos. `text-gray-500` does not compile. */
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-track: var(--track);
+  --color-title: var(--title);
+  --color-body: var(--body);
+  --color-meta: var(--meta);
+  --color-soft: var(--soft);
+  --color-muted: var(--muted);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-action-tint: var(--action-tint);
+  --color-on-action: var(--on-action);
+  --color-negative: var(--negative);
+  --color-negative-soft: var(--negative-soft);
+  --color-attention: var(--attention);
+  --color-attention-soft: var(--attention-soft);
+
+  --radius-card: var(--card-radius);
+  --radius-control: var(--control-radius);
+  --shadow-float: var(--float-shadow);
+}

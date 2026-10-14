@@ -1,0 +1,119 @@
+/* Two layers: the palette holds values, the semantic layer holds roles. Markup reads roles only,
+   so dark mode is the semantic layer swapped under .dark — no screen knows a hex. */
+:root {
+  /* Palette: Mega-Sena green. 1–4 fills · 5 the brand · 6 hover · 7–9 deep, for dark mode. */
+  --green-1: #e3f3ec;
+  --green-2: #bfe4d3;
+  --green-3: #8fe0bb;
+  --green-4: #5fd3a0;
+  --green-5: #1a7d56;
+  --green-6: #146645;
+  --green-7: #143a2d;
+  --green-8: #0c2a20;
+  --green-9: #062218;
+
+  /* Palette: red and amber. 1 soft · 2 strong · 3 strong on dark · 4 soft on dark. */
+  --red-1: #fbeceb;
+  --red-2: #c8251b;
+  --red-3: #d93a30;
+  --red-4: #3a1715;
+  --amber-1: #fdf1d8;
+  --amber-2: #8a5a00;
+  --amber-3: #f2b84b;
+  --amber-4: #3a2c10;
+
+  /* Palette: zinc. */
+  --zinc-25: #fcfcfd;
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-150: #ececef;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-450: #8b8b93;
+  --zinc-500: #71717a;
+  --zinc-550: #63636b;
+  --zinc-700: #3f3f46;
+  --zinc-750: #2e2e33;
+  --zinc-800: #27272a;
+  --zinc-850: #1f1f23;
+  --zinc-900: #18181b;
+  --zinc-925: #111113;
+
+  /* Semantic: surfaces */
+  --background: var(--zinc-100);
+  --surface: var(--zinc-25);
+  --surface-2: var(--zinc-100);
+  --surface-3: var(--zinc-150);
+  --line: var(--zinc-200);
+  --line-hover: var(--zinc-400);
+  --track: var(--zinc-200);
+
+  /* Semantic: text */
+  --title: var(--zinc-900);
+  --body: var(--zinc-700);
+  --meta: var(--zinc-500);
+  --soft: var(--zinc-450);
+  --muted: var(--zinc-400);
+
+  /* Semantic: action and state */
+  --action: var(--green-5);
+  --action-hover: var(--green-6);
+  --action-tint: var(--green-1);
+  --on-action: #ffffff;
+  --negative: var(--red-2);
+  --negative-soft: var(--red-1);
+  --attention: var(--amber-2);
+  --attention-soft: var(--amber-1);
+
+  /* Metrics */
+  --card-radius: 0.8rem;
+  --control-radius: 0.6rem;
+  --float-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 0.05), 0 0.4rem 1.2rem rgb(0 0 0 / 0.07);
+  --stripe: color-mix(in srgb, var(--action) 5%, transparent);
+}
+
+.dark {
+  --background: var(--zinc-925);
+  --surface: var(--zinc-900);
+  --surface-2: var(--zinc-850);
+  --surface-3: var(--zinc-800);
+  --line: var(--zinc-750);
+  --line-hover: var(--zinc-700);
+  --track: var(--zinc-750);
+
+  --title: var(--zinc-50);
+  --body: var(--zinc-300);
+  --meta: var(--zinc-400);
+  --soft: var(--zinc-450);
+  --muted: var(--zinc-550);
+
+  /* The brand green fails contrast on black: dark mode acts in the light end of the scale. */
+  --action: var(--green-4);
+  --action-hover: var(--green-3);
+  --action-tint: var(--green-7);
+  --on-action: var(--green-9);
+  --negative: var(--red-3);
+  --negative-soft: var(--red-4);
+  --attention: var(--amber-3);
+  --attention-soft: var(--amber-4);
+
+  --float-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 0.3), 0 0.6rem 1.6rem rgb(0 0 0 / 0.35);
+  --stripe: color-mix(in srgb, var(--action) 8%, transparent);
+}
+
+/* A game re-points the action roles to its own colour; --game-light/--game-dark come inline from
+   GAMES through gameStyle(). */
+[data-game] {
+  --action: var(--game-light);
+  --action-hover: color-mix(in srgb, var(--game-light) 85%, #000);
+  --action-tint: color-mix(in srgb, var(--game-light) 12%, var(--surface));
+  --on-action: #ffffff;
+}
+
+.dark [data-game] {
+  --action: var(--game-dark);
+  --action-hover: color-mix(in srgb, var(--game-dark) 80%, #fff);
+  --action-tint: color-mix(in srgb, var(--game-dark) 16%, var(--surface));
+  --on-action: var(--zinc-925);
+}

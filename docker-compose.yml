@@ -1,0 +1,13 @@
+services:
+  fezinha:
+    build: .
+    container_name: fezinha
+    restart: unless-stopped
+    expose:
+      - 3000
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true

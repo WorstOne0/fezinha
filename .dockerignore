@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+.claude
+npm-debug.log*
+Dockerfile
+docker-compose.yml
+scripts
+
+# .env is deliberately not ignored: every variable is NEXT_PUBLIC_*, already visible to anyone who opens the site.
+# If a non-public variable is ever added, ignore .env again and pass build args instead.
+.env.local
+.env.*.local
